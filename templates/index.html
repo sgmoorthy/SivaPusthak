@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <img src="{{ book.cover }}" alt="Cover">
+                <strong>{{ book.title }}</strong> by {{ book.author }} ({{ book.genre }})
+                <a href="/remove_book/{{ loop.index0 }}">Remove</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="/add_book">Add Book</a></p>
+    <p><a href="/import_books">Import Books from CSV</a></p>
+</body>
+</html>
